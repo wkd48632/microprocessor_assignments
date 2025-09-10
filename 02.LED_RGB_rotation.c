@@ -19,8 +19,8 @@ int main(void)
     P2 -> DIR |= 0x07;
     P2 -> OUT &= ~0x07;
     
-    
-    for ( int status = 0; ; status = status + 1 % 3) {
+    int status
+    for ( int status = 0; ; status = (status + 1) % 3) {
         // LED_ON
         switch(status){
         case 0:
