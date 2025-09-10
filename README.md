@@ -7,7 +7,7 @@
 - 랩 자료모음  
 [http://users.ece.utexas.edu/~valvano/arm/tirslk_max_1_00_00.zip](http://users.ece.utexas.edu/~valvano/arm/tirslk_max_1_00_00.zip)
 
-## 코드 개요
+## 노트
 - Px 는 포트다.
 - Px.y는 x포트의 y번째 핀을 의미하며, 비트마스크로 조작할 수 있다.
 - P2는 LED다.
