@@ -15,6 +15,11 @@
 - Px->IN은 입력이다. 비트마스크를 사용하여 특정 입력을 받을 수도 있다. (예: P7->IN&0x01)
 - 시스템 함수들이 사용된다 (Clock_Init48MHz(), Reflectance_Init(), TExaS_Init(), Clock_Delay1us() 등)
 - 각종 헤더파일은 랩 자료모음의 inc 폴더 안에 있다.
+- SEL0과 SEL1을 설정해 핀의 용도를 비정할 수 있다.
+    - SEL1:0, SEL0:0 : GPIO
+    - SEL1:0, SEL0:1 : Primary alternate function
+    - SEL1:1, SEL1:0 : Secondary alternate function
+    - SEL1:1, SEL1:1 : Ternary alternative function / Analog / Other
 
 ## 핀 맵
 - P2: LED ( 0:R, 1:G, 2:B )
