@@ -42,7 +42,7 @@
 #define BUMP_5_TF   (P4->IN&0b10000000)
 
 // Bump all/condensed
-#define BUMP_ALL    (P4->IN&0b11101101)
+#define BUMP_ALL        (P4->IN&0b11101101)
 #define BUMP_CONDENSED  (((P4->IN&0b00000001)>>0)|((P4->IN&0b00001100)>>1)|((P4->IN&0b11100000)>>2))
 
 
@@ -51,31 +51,31 @@
 // REFLECTANCE_LED_0: even, REFLECTANCE_LED_1: odd
 // REFLECTANCE_1: rightmost(tilted left), REFLECTANCE_8: leftmost(tilted right)
 
-// Reflectance LED
-#define REFLECTANCE_LED_0_ON    P5->OUT|=0b00001000
-#define REFLECTANCE_LED_1_ON    P9->OUT|=0b00000100
-#define REFLECTANCE_LED_0_OFF   P5->OUT&=0b11110111
-#define REFLECTANCE_LED_1_OFF   P9->OUT&=0b11111011
+// Reflectance LED on/off
+#define REFLECTANCE_LED_0_ON        P5->OUT|=0b00001000
+#define REFLECTANCE_LED_1_ON        P9->OUT|=0b00000100
+#define REFLECTANCE_LED_0_OFF       P5->OUT&=0b11110111
+#define REFLECTANCE_LED_1_OFF       P9->OUT&=0b11111011
 
 // Reflectance 0 1
-#define REFLECTANCE_1       ((P7->IN&0b00000001)>>0)
-#define REFLECTANCE_2       ((P7->IN&0b00000010)>>1)
-#define REFLECTANCE_3       ((P7->IN&0b00000100)>>2)
-#define REFLECTANCE_4       ((P7->IN&0b00001000)>>3)
-#define REFLECTANCE_5       ((P7->IN&0b00010000)>>4)
-#define REFLECTANCE_6       ((P7->IN&0b00100000)>>5)
-#define REFLECTANCE_7       ((P7->IN&0b01000000)>>6)
-#define REFLECTANCE_8       ((P7->IN&0b10000000)>>7)
+#define REFLECTANCE_1           ((P7->IN&0b00000001)>>0)
+#define REFLECTANCE_2           ((P7->IN&0b00000010)>>1)
+#define REFLECTANCE_3           ((P7->IN&0b00000100)>>2)
+#define REFLECTANCE_4           ((P7->IN&0b00001000)>>3)
+#define REFLECTANCE_5           ((P7->IN&0b00010000)>>4)
+#define REFLECTANCE_6           ((P7->IN&0b00100000)>>5)
+#define REFLECTANCE_7           ((P7->IN&0b01000000)>>6)
+#define REFLECTANCE_8           ((P7->IN&0b10000000)>>7)
 
 // Reflectance true false
-#define REFLECTANCE_1_TF    (P7->IN&0b00000001)
-#define REFLECTANCE_2_TF    (P7->IN&0b00000010)
-#define REFLECTANCE_3_TF    (P7->IN&0b00000100)
-#define REFLECTANCE_4_TF    (P7->IN&0b00001000)
-#define REFLECTANCE_5_TF    (P7->IN&0b00010000)
-#define REFLECTANCE_6_TF    (P7->IN&0b00100000)
-#define REFLECTANCE_7_TF    (P7->IN&0b01000000)
-#define REFLECTANCE_8_TF    (P7->IN&0b10000000)
+#define REFLECTANCE_1_TF        (P7->IN&0b00000001)
+#define REFLECTANCE_2_TF        (P7->IN&0b00000010)
+#define REFLECTANCE_3_TF        (P7->IN&0b00000100)
+#define REFLECTANCE_4_TF        (P7->IN&0b00001000)
+#define REFLECTANCE_5_TF        (P7->IN&0b00010000)
+#define REFLECTANCE_6_TF        (P7->IN&0b00100000)
+#define REFLECTANCE_7_TF        (P7->IN&0b01000000)
+#define REFLECTANCE_8_TF        (P7->IN&0b10000000)
 
 // Reflectance all(=condensed)
 #define REFLECTANCE_ALL         (P7->IN)
@@ -86,26 +86,26 @@
 // Motor
 
 // Motor R/L enable/disable
-#define MOTOR_R_SET_ENABLE  P3->OUT|=0b10000000
-#define MOTOR_L_SET_ENABLE  P3->OUT|=0b01000000
-#define MOTOR_R_SET_DISABLE P3->OUT&=0b01111111
-#define MOTOR_L_SET_DISABLE P3->OUT&=0b10111111
+#define MOTOR_R_SET_ENABLE      P3->OUT|=0b10000000
+#define MOTOR_L_SET_ENABLE      P3->OUT|=0b01000000
+#define MOTOR_R_SET_DISABLE     P3->OUT&=0b01111111
+#define MOTOR_L_SET_DISABLE     P3->OUT&=0b10111111
 
 // Motor all enable/disable
 #define MOTOR_ALL_SET_ENABLE    P3->OUT|=0b11000000
 #define MOTOR_ALL_SET_DISABLE   P3->OUT&=0b00111111
 
 // Motor R/L front/back
-#define MOTOR_R_SET_FRONT   P5->OUT|=0b00010000
-#define MOTOR_L_SET_FRONT   P5->OUT|=0b00100000
-#define MOTOR_R_SET_BACK    P5->OUT&=0b11101111
-#define MOTOR_L_SET_BACK    P5->OUT&=0b11011111
+#define MOTOR_R_SET_FRONT       P5->OUT|=0b00010000
+#define MOTOR_L_SET_FRONT       P5->OUT|=0b00100000
+#define MOTOR_R_SET_BACK        P5->OUT&=0b11101111
+#define MOTOR_L_SET_BACK        P5->OUT&=0b11011111
 
 // Motor signal high/low
-#define MOTOR_R_SIGNAL_HIGH P2->OUT|=0b10000000
-#define MOTOR_L_SIGNAL_HIGH P2->OUT|=0b01000000
-#define MOTOR_R_SIGNAL_LOW  P2->OUT&=0b01111111
-#define MOTOR_L_SIGNAL_LOW  P2->OUT&=0b10111111
+#define MOTOR_R_SIGNAL_HIGH     P2->OUT|=0b10000000
+#define MOTOR_L_SIGNAL_HIGH     P2->OUT|=0b01000000
+#define MOTOR_R_SIGNAL_LOW      P2->OUT&=0b01111111
+#define MOTOR_L_SIGNAL_LOW      P2->OUT&=0b10111111
 
 
 
