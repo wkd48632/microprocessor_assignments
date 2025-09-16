@@ -11,11 +11,10 @@ int main(void)
     P2->DIR  |= 0b00000111;
     P2->OUT  &= 0b11111000;
     
-    int i = 0;
+    unsigned char i = 8;
     while ( true ) {
-        i %= 8; if(!i)i++;
-        P2->OUT = P2->OUT/8*8 + i;
-        printf("P2->OUT: %2x", P2->OUT);
+        P2OUT=P2OUT&-8|(i|=i/8);
+        printf("P2->OUT: %2x\n", P2->OUT);
         i <<= 1;
         Clock_Delay1ms(1000);
     }
