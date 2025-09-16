@@ -11,9 +11,9 @@ int main(void)
     P2->DIR  |= 0b00000111;
     P2->OUT  &= 0b11111000;
     
-    int i = 0b00000001;
+    unsigned char i = 0;
     while ( true ) {
-        if ( i & 0b00001000 ) i++;
+        if ( !(i&0b00000111) ) i++;
         P2->OUT &= (0b11111000 | i);
         i <<= 1;
         Clock_Delay1ms(1000);
