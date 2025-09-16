@@ -14,27 +14,17 @@ int main(void)
     Clock_Init48MHz();
     
     // Init
-    P2 -> SEL0 &= ~0x07;
-    P2 -> SEL1 &= ~0x07;
-    P2 -> DIR |= 0x07;
-    P2 -> OUT &= ~0x07;
+    P2->SEL0 &= 0b11111000;
+    P2->SEL1 &= 0b11111000;
+    P2->DIR  |= 0b00000111;
+    P2->OUT  &= 0b11111000;
     
-    int status;
-    for ( status = 0; ; status = (status + 1) % 3) {
-        // LED_ON
-        switch(status){
-        case 0:
-            LED_R_ON;
-            break;
-        case 1:
-            LED_G_ON;
-            break;
-        case 2:
-            LED_B_ON;
-            break;
-        }
+    int i;
+    while ( true ) {
+        if ( i & 0b00001000 ) i++;
+        P2->OUT &= (0b11111000 | i);
+        i <<= 1;
         Clock_Delay1ms(1000);
-        LED_ALL_OFF;
     }
     return 0;
 }
