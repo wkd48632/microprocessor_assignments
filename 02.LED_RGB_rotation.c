@@ -9,11 +9,11 @@ int main(void)
     P2->SEL0 &= 0b11111000;
     P2->SEL1 &= 0b11111000;
     P2->DIR  |= 0b00000111;
-    P2->OUT  &= 0b11111000;
+    P2->OUT  &= 0b11111001;
     
-    unsigned char i = 8;
+    unsigned char i = 3;
     while ( true ) {
-        P2->OUT=P2->OUT&-8|(i|=i/8);
+        P2->OUT^=(i=i/8+i%8);
         printf("P2->OUT: %2x\n", P2->OUT);
         i <<= 1;
         Clock_Delay1ms(1000);
