@@ -11,11 +11,11 @@ int main(void)
     P2->DIR  |= 0b00000111;
     P2->OUT  &= 0b11111001;
     
-    int i = 3;
+    int i = 1;
     while ( true ) {
-        P2->OUT ^= i;
+        P2->OUT = P2->OUT & 0b11111000 | i;
         printf("P2->OUT: %2x\n", P2->OUT);
-        i <<= 1; i += i / 8;
+        i <<= 1; i += i/8;
         Clock_Delay1ms(1000);
     }
     return 0;
