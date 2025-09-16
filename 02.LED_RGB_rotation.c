@@ -13,10 +13,9 @@ int main(void)
     
     int i = 3;
     while ( true ) {
-        P2->OUT ^= i; // trimming i is inevitable
         printf("P2->OUT: %2x\n", P2->OUT);
-        i <<= 1; i = i + i / 8 & 7;
         Clock_Delay1ms(1000);
+        P2->OUT ^= i; i <<= 1; i = i + i / 8 & 7; // trimming i is inevitable
     }
     return 0;
 }
