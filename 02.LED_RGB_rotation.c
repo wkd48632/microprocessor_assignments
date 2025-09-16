@@ -11,7 +11,7 @@ int main(void)
     P2->DIR  |= 0b00000111;
     P2->OUT  &= 0b11111000;
     
-    unsigned char i = 0;
+    int i = 0;
     while ( true ) {
         i%=8; if(!i)i++;
         P2->OUT = P2->OUT/8*8 + i;
