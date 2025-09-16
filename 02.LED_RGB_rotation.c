@@ -14,8 +14,8 @@ int main(void)
     int i = 0;
     while ( true ) {
         i %= 8; if(!i)i++;
-        printf("P2->OUT: %2x", P2->OUT);
         P2->OUT = P2->OUT/8*8 + i;
+        printf("P2->OUT: %2x", P2->OUT);
         i <<= 1;
         Clock_Delay1ms(1000);
     }
