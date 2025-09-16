@@ -13,7 +13,7 @@ int main(void)
     
     unsigned char i = 8;
     while ( true ) {
-        P2OUT=P2OUT&-8|(i|=i/8);
+        P2->OUT=P2->OUT&-8|(i|=i/8);
         printf("P2->OUT: %2x\n", P2->OUT);
         i <<= 1;
         Clock_Delay1ms(1000);
