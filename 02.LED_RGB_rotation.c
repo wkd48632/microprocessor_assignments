@@ -15,7 +15,7 @@ int main(void)
     while ( true ) {
         printf("P2->OUT: %2x\n", P2->OUT);
         Clock_Delay1ms(1000);
-        P2->OUT ^= i; i <<= 1; i = i + i / 8 & 7; // trimming i is inevitable
+        P2->OUT ^= i; i <<= 1; i = i + i / 8 & 7; // when apply i directly on out, trimming i is inevitable.
     }
     return 0;
 }
