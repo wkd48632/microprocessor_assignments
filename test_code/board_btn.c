@@ -17,11 +17,11 @@ int main()
 
     int t = 0;
     while (1) {
-        t++
+        t++;
         printf("t:%d - ", t);
         printf("%s ", BOARD_BTN_S1?"S1":"  ");
         printf("%s ", BOARD_BTN_S2?"S2":"  ");
-        printf('\n')
+        printf("\n");
         systick_wait_ms(200);
     }
 
