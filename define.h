@@ -129,14 +129,17 @@
 
 // SET_GPIO_IN/OUT ( PORT, USING_BIT )
 #define SET_GPIO_OUT(X,Y)               X->SEL0&=~Y,X->SEL1&=~Y,X->DIR|=Y,X->OUT|=~Y
-#define SET_GPIO_IN(X,Y)                X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y
+#define SET_GPIO_IN(X,Y)                X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN&=~Y,X->OUT&=~Y
+#define SET_GPIO_IN_PULLDOWN(X,Y)       X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN|=Y,X->OUT&=~Y
+#define SET_GPIO_IN_PULLUP(X,Y)         X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN|=Y,X->OUT|=Y
+
 
 // Set component
 #define SET_GPIO_OUT_LED                SET_GPIO_OUT(P2,0b00000111)
 #define SET_GPIO_OUT_MOTOR_ENABLE       SET_GPIO_OUT(P3,0b11000000)
 #define SET_GPIO_OUT_MOTOR_DIRECTION    SET_GPIO_OUT(P5,0b00110000)
 #define SET_GPIO_OUT_MOTOR_SIGNAL       SET_GPIO_OUT(P2,0b11000000)
-#define SET_GPIO_IN_BUMP                SET_GPIO_IN(P4,0b11101101)
+#define SET_GPIO_IN_BUMP                SET_GPIO_IN_PULLUP(P4,0b11101101)
 #define SET_GPIO_IN_REFLECTANCE         SET_GPIO_IN(P7,0b11111111)
 #define SET_GPIO_IN_TACHOMETER_A        SET_GPIO_IN(P10,0b00110000)
 #define SET_GPIO_IN_TACHOMETER_B        SET_GPIO_IN(P5,0b00000101)
