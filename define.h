@@ -2,8 +2,8 @@
 // SET_GPIO_IN/OUT ( PORT, USING_BIT )
 #define SET_GPIO_OUT(X,Y)               X->SEL0&=~Y,X->SEL1&=~Y,X->DIR|=Y,X->OUT|=~Y
 #define SET_GPIO_IN(X,Y)                X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN&=~Y,X->OUT&=~Y
-#define SET_GPIO_IN_PULLUP(X,Y)         X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN|=Y,X->OUT|=Y
 #define SET_GPIO_IN_PULLDOWN(X,Y)       X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN|=Y,X->OUT&=~Y
+#define SET_GPIO_IN_PULLUP(X,Y)         X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN|=Y,X->OUT|=Y
 
 // Set component
 #define SET_GPIO_OUT_REFLECTANCE_LED    SET_GPIO_OUT(P5,0b00001000),SET_GPIO_OUT(P5,0b00000100)
