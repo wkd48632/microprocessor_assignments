@@ -9,7 +9,7 @@ int main(void)
     P2->SEL0 &= 0b11111000;
     P2->SEL1 &= 0b11111000;
     P2->DIR  |= 0b00000111;
-    P2->OUT  &= 0b11111001;
+    P2->OUT  = P2->OUT & 0b11111000 | 0b00000001;
     
     int i = 3;
     while ( true ) {
