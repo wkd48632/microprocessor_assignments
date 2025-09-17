@@ -1,3 +1,6 @@
+#define BOARD_BTN_S1    (P1->IN&0b00000010)>>1
+#define BOARD_BTN_S2    (P1->IN&0b00010000)>>4
+
 // LED_ON/OFF
 #define LED_R_ON    P2->OUT|=0b00000001
 #define LED_G_ON    P2->OUT|=0b00000010
