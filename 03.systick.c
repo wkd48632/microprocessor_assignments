@@ -15,10 +15,7 @@ void systick_wait1ms(){
 
 
 void systick_wait1s() {
-    int i = 0;
-    for ( i = 0; i != 1000; i++ ) {
-        systick_wait1ms();
-    }
+    int i; for ( i = 0; i != 1000; i++ ) systick_wait1ms();
 }
 
 int main(void)
