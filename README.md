@@ -21,6 +21,7 @@
     - SEL1:1, SEL1:0 : Secondary alternate function
     - SEL1:1, SEL1:1 : Ternary alternative function / Analog / Other
 - 범프는 수동으로 리셋시켜줘야한다.
+- Px.DIR, REN, OUT, 000: INPUT, 010: INPUT PULLUP, 011 INPUT PULLUP
 
 ## 핀 맵
 - P2: LED ( 0:R, 1:G, 2:B )
