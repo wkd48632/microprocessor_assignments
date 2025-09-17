@@ -23,6 +23,9 @@
 
 
 
+// SysTick Init for 1ms
+#define SET_SYSTICK_FOR_1MS            Systick->CTRL=0,SysTick->LOAD=48000-1,SysTick->VAL=0,SysTick->CTRL=0x00000005;
+
 
 
 // I/Os
