@@ -24,13 +24,13 @@ void systick_wait1s() {
 int main(void)
 {
     Clock_Init48MHz();
-
+    systick_init();
+    
     P2->SEL0 &= 0b11111000;
     P2->SEL1 &= 0b11111000;
     P2->DIR  |= 0b00000111;
     P2->OUT  &= 0b11111000;
 
-    systick_init();
     char i = 1;
     while ( 1 ) {
         P2->OUT = P2->OUT & 0b11111000 | i;
