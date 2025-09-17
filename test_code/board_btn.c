@@ -19,8 +19,8 @@ int main()
     while (1) {
         t++
         printf("t:%d - ", t);
-        if(BOARD_BTN_S1) printf("S1 pressed. ");
-        if(BOARD_BTN_S2) printf("S2 pressed. ");
+        printf("%s ", BOARD_BTN_S1?"S1":"  ");
+        printf("%s ", BOARD_BTN_S2?"S2":"  ");
         printf('\n')
         systick_wait_ms(200);
     }
