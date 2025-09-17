@@ -20,6 +20,7 @@
     - SEL1:0, SEL0:1 : Primary alternate function
     - SEL1:1, SEL1:0 : Secondary alternate function
     - SEL1:1, SEL1:1 : Ternary alternative function / Analog / Other
+- 범프는 수동으로 리셋시켜줘야한다.
 
 ## 핀 맵
 - P2: LED ( 0:R, 1:G, 2:B )
