@@ -20,8 +20,11 @@
     - SEL1:0, SEL0:1 : Primary alternate function
     - SEL1:1, SEL1:0 : Secondary alternate function
     - SEL1:1, SEL1:1 : Ternary alternative function / Analog / Other
-- Px.DIR, REN, OUT, 000: INPUT, 010: INPUT PULLUP, 011 INPUT PULLUP
-- 스위치나 범프나 풀업해줘야한다.
+- DIR, REN, OUT을 설정해 풀업/다운을 설정할 수 있다.
+    - DIR:0, REN:0, OUT:0 : INPUT
+    - DIR:0, REN:1, OUT:0 : INPUT_PULLDOWN
+    - DIR:0, REN:1, OUT:1 : INPUT_PULLUP
+- 보드 스위치와 범프를 사용할 때에는 풀업 해줘야한다.
 
 ## 핀 맵
 - P2: LED ( 0:R, 1:G, 2:B )
