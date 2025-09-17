@@ -12,7 +12,7 @@ int main(void)
     P2->OUT  = P2->OUT & 0b11111000 | 0b00000001;
     
     int i = 3;
-    while ( true ) {
+    while ( 1 ) {
         printf("P2->OUT: %2x\n", P2->OUT);
         Clock_Delay1ms(1000);
         P2->OUT ^= i; i <<= 1; i = i + i / 8 & 7; // when apply i directly on out, trimming i is inevitable.
