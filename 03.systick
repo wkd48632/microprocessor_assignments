@@ -9,7 +9,7 @@ void systick_init(void){
 
 void systick_wait1ms(){
     //SysTick->LOAD = 48000;
-    SysTick->VAL = 0xFFFFFFFF;
+    SysTick->VAL = 0;
     while(SysTick->CTRL & 0x00010000 == 0);
 }
 
