@@ -33,8 +33,8 @@
 #define BOARD_BTN_S2    ((P1->IN&0b00010000)>>4)
 
 // BOARD_BTN true false;
-#define BOARD_BTN_S1    (P1->IN&0b00000010)
-#define BOARD_BTN_S2    (P1->IN&0b00010000)
+#define BOARD_BTN_S1_TF  (P1->IN&0b00000010)
+#define BOARD_BTN_S2_TF  (P1->IN&0b00010000)
 
 
 
