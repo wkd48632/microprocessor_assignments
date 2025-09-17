@@ -1,5 +1,4 @@
 #include "msp.h"
-#include "Clock.h"
 #include <stdio.h>
 
 void systick_init(void){
@@ -10,18 +9,15 @@ void systick_init(void){
 }
 
 void systick_wait1ms(){
-    printf("###");
     SysTick->VAL = 0;
-    while((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0);
+    while((SysTick->CTRL & 0x00010000) == 0);
 }
 
 
 void systick_wait1s() {
     int i = 0;
     for ( i = 0; i != 1000; i++ ) {
-        printf("##");
         systick_wait1ms();
-
     }
 }
 
@@ -37,12 +33,10 @@ int main(void)
     systick_init();
     char i = 1;
     while ( 1 ) {
+        P2->OUT = P2->OUT & 0b11111000 | i;
         printf("P2->OUT: %2x\n", P2->OUT);
         systick_wait1s();
-        //systick_wait1s();
-        P2->OUT = P2->OUT & 0b11111000 | i;
         i <<= 1; i = i + i / 8 & 7;
-        //^= i; i <<= 1; i = i + i / 8 & 7; // when apply i directly on out, trimming i is inevitable.
     }
     return 0;
 }
