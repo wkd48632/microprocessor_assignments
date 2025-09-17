@@ -101,6 +101,10 @@
 #define REFLECTANCE_LED_0_OFF       P5->OUT&=0b11110111
 #define REFLECTANCE_LED_1_OFF       P9->OUT&=0b11111011
 
+// Reflectance LED all on/off
+#define REFLECTANCE_LED_ON          P5->OUT|=0b00001000,P9->OUT|=0b00000100
+#define REFLECTANCE_LED_OFF         P9->OUT|=0b00000100,P9->OUT&=0b11111011
+
 // Reflectance 0 1
 #define REFLECTANCE_1           ((P7->IN&0b00000001)>>0)
 #define REFLECTANCE_2           ((P7->IN&0b00000010)>>1)
