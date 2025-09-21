@@ -25,7 +25,8 @@
     - DIR:0, REN:1, OUT:0 : INPUT_PULLDOWN
     - DIR:0, REN:1, OUT:1 : INPUT_PULLUP
 - 보드 스위치와 범프를 사용할 때에는 풀업 해줘야한다.
-- 컵파일러는 'true'를 모른다. 따로 선언해야한다.
+- 컴파일러는 'true'를 모른다. 따로 선언해야한다.
+- PWM은 nSleep(nSLP)으로 부르기도 한다. 
 
 ## 핀 맵
 - P2: LED ( 0:R, 1:G, 2:B )
