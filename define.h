@@ -25,7 +25,8 @@
 
 // SysTick Init for 1ms
 #define SET_SYSTICK_FOR_1MS            SysTick->CTRL=0,SysTick->LOAD=48000-1,SysTick->VAL=0,SysTick->CTRL=0x00000005;
-
+#define SET_SYSTICK_FOR_1KHZ           SysTick->CTRL=0,SysTick->LOAD=48000-1,SysTick->VAL=0,SysTick->CTRL=0x00000005;
+#define SET_SYSTICK_FOR_50HZ           SysTick->CTRL=0,SysTick->LOAD=48000*20-1,SysTick->VAL=0,SysTick->CTRL=0x00000005; //0xea600(20/24bits)
 
 
 // I/Os
