@@ -48,6 +48,9 @@ int main()
     P2->OUT  &= ~0b00111111;
 
     printf("Done.\n");
+
+
+
     while (1) {
         P5->OUT |= 0x08;
         P9->OUT |= 0x04;
@@ -59,7 +62,7 @@ int main()
 
         P7->DIR = 0x00;
 
-        Clock_Delay1us(500);
+        Clock_Delay1us(700);
 
         unsigned char status = ~P7->IN; // detected = black = 1
 
