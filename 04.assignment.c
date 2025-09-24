@@ -1,7 +1,7 @@
 #include "msp.h"
 #include "Clock.h"
 #define SET_GPIO_OUT(X,Y)   X->SEL0&=~Y,X->SEL1&=~Y,X->DIR|=Y,X->OUT|=~Y
-#define SET_GPIO_IN(X,Y)    X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y,X->REN&=~Y,X->OUT&=~Y
+#define SET_GPIO_IN(X,Y)    X->SEL0&=~Y,X->SEL1&=~Y,X->DIR&=~Y
 
 int main()
 {
