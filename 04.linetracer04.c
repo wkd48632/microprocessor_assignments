@@ -1,6 +1,3 @@
-// pdf에 있는 코드
-// 10월 15일 ~ 10월 18일
-
 #include "msp.h"
 
 void systick_wait_ms(int n) {
@@ -32,10 +29,15 @@ int main()
     P7->SEL1 &= ~0xFF;
     P7->DIR  &= ~0xFF;
 
-    // Turn on IR LEDs
-    P5->OUT  |=  0x08;
-    P9->OUT  |=  0x04;
+    P2->SEL0 &= ~0b11000000;
+    P2->SEL1 &= ~0b11000000;
+    P2->DIR  |=  0b11000000;
+    P2->OUT  &= ~0b00111111;
 
-    while (1);
+    while (1) {
+        // Turn on IR LEDs
+        P5->OUT  |=  0x08;
+        P9->OUT  |=  0x04;
+    }
     return 0;
 }
