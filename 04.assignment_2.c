@@ -42,7 +42,7 @@ int main()
         P7->DIR = 0x00;
 
         // Get sensor status
-        Clock_Delay1us(900);
+        Clock_Delay1us(500);
         unsigned char status = ~P7->IN; // white = 0, black = 1
         printf("Reflectance sensor status: %x\n", status);
 
