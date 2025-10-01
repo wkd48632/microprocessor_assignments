@@ -63,18 +63,18 @@ int main()
         // Control motor
         if ( full_detected == 0b01111110 ) {
             printf("Don't move!\n");
-            motor_move_10ms(0);
+            move_motor_10ms(0);
         }
         else {
             printf("Move!\n");
-            motor_move_10ms(0);
+            move_motor_10ms(0);
         }
 
         // Turn off IR LED
         P5->OUT &= ~0x08;
         P9->OUT &= ~0x04;
         Clock_Delay1us(10);
-        
+
     }
 
     return 0;
