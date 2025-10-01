@@ -84,7 +84,7 @@ int main()
 
 
         // Control motor
-        if ( full_detected ) {
+        if ( full_detected == 0b01111110 ) {
             printf("Don't move!\n");
             P3->OUT &= ~0xC0;
         }
