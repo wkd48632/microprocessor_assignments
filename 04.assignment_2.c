@@ -2,6 +2,19 @@
 #include "Clock.h"
 #define SET_GPIO_OUT(X,Y)   X->SEL0&=~Y,X->SEL1&=~Y,X->DIR|=Y,X->OUT|=~Y
 
+void move_motor_10ms(int speed){
+    int i = 0;
+    for (i = 0; i != 1000; i++ ) {
+        if ( i % 255 < speed ) {
+            P3->OUT |=  0xC0;
+        }
+        else {
+            P3->OUT &= ~0xC0;
+        }
+        Clock_Delay1us(10);
+    }
+}
+
 int main()
 {
     // Initialization
@@ -50,20 +63,17 @@ int main()
         // Control motor
         if ( full_detected == 0b01111110 ) {
             printf("Don't move!\n");
-            P3->OUT &= ~0xC0;
+            motor_move_10ms(0);
         }
         else {
             printf("Move!\n");
-            P3->OUT |=  0xC0;
+            motor_move_10ms(0);
         }
 
         // Turn off IR LED
         P5->OUT &= ~0x08;
         P9->OUT &= ~0x04;
-        
-        Clock_Delay1ms(10);
-        P3->OUT &= ~0xC0;
-        Clock_Delay1ms(20);
+        Clock_Delay1us(10);
         
     }
 
