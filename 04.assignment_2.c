@@ -97,7 +97,10 @@ int main()
         P5->OUT &= ~0x08;
         P9->OUT &= ~0x04;
         
-        Clock_Delay1ms(100);
+        Clock_Delay1ms(50);
+        P3->OUT &= ~0xC0;
+        Clock_Delay1ms(50);
+        
     }
 
     return 0;
