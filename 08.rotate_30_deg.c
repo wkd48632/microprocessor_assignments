@@ -1,3 +1,14 @@
+// 30cm forward
+// 7pi = 1 round
+// 30 / (7pi) round
+
+// 30deg rotate
+// W = 14, Rw = 14pi
+// W:30deg = 12:1
+// 14pi/12 cm to go
+// 14pi/12 / (7pi) round
+// 14pi/12/7pi * 360deg = 60deg@motor
+
 #include "msp.h"
 #include "Clock.h"
 // Page 13
