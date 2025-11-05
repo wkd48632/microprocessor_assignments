@@ -1,3 +1,11 @@
+// 7pi = 1 round
+// 30 / (7pi) round
+// W = 14, Rw = 14pi
+// W:30deg = 12:1
+// 14/12 cm to go
+// 14/12 / (7pi) round
+// 14/12/7/pi * 360deg = 19deg
+
 void main(void)
 {
     int sw1;
