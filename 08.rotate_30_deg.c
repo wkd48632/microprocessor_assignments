@@ -1,16 +1,6 @@
-// 30cm forward
-// 7pi = 1 round
-// 30 / (7pi) round
-
-// 30deg rotate
-// W = 14, Rw = 14pi
-// W:30deg = 12:1
-// 14pi/12 cm to go
-// 14pi/12 / (7pi) round
-// 14pi/12/7pi * 360deg = 60deg@motor
-
 #include "msp.h"
 #include "Clock.h"
+#include <stdio.h>
 // Page 13
 
 void turn_on_led(int color) {
@@ -107,23 +97,68 @@ void systick_wait1s() {
 }
 
 
-// Page 22: Example
+void timer_A3_capture_init() {
+    P10->SEL0 |= 0x30;
+    P10->SEL1 &= ~0x30;
+    P10->DIR &= ~0x30;
+
+    TIMER_A3->CTL &= ~0x0030;
+    TIMER_A3->CTL = 0x0200;
+
+    TIMER_A3->CCTL[0] = 0x4910;
+    TIMER_A3->CCTL[1] = 0x4910;
+    TIMER_A3->EX0 & ~0x0007;
+
+    NVIC->IP[3] = (NVIC->IP[3]&0x00000FFFF) | 0x40400000;
+    NVIC->ISER[0] = 0x0000C000;
+    TIMER_A3->CTL |= 0x0024;
+}
+
+uint32_t left_count;
+uint32_t right_count;
+
+void TA3_N_IRQHandler(void) {
+    TIMER_A3->CCTL[1] &= ~0x0001;
+    left_count++;
+    //printf("l++\n");
+}
+
+void TA3_0_IRQHandler(void) {
+    TIMER_A3->CCTL[0] &= ~0x0001;
+    right_count++;
+    //printf("r++\n");
+}
+
+
+
 void main(void)
 {
     // Initialization
     Clock_Init48MHz();
     systick_init();
     motor_init();
+    timer_A3_capture_init();
 
+    left_count = 0;
+    right_count = 0;
+    left_forward();
+    right_backward();
     while(1) {
-        left_forward();
-        right_backward();
-        move(2000, 2000);
-        systick_wait1s();
 
-        left_backward();
-        right_forward();
-        move(1000, 3000);
-        systick_wait1s();
+        if ( left_count < 60 && right_count < 60 ) {
+            move(10, 10);
+            systick_wait1ms();
+        }
+        else if ( left_count < 60 ) {
+            move(10, 0);
+            systick_wait1ms();
+        }
+        else if ( right_count < 60 ) {
+            move(0, 10);
+            systick_wait1ms();
+        }
+        else {
+            move(0, 0);
+        }
     }
 }
